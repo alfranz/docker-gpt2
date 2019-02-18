@@ -56,8 +56,8 @@ Coming soon!
 # Dockerized 
 
 ```
-docker build openai-nlp . 
-docker run --name ubuntu_bash --rm -i -t openai-nlp bash
+docker build -t openai-nlp . 
+docker run --rm -i -t openai-nlp
 ```
 
 

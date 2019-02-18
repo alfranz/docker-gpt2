@@ -11,4 +11,4 @@ RUN chmod +x /nlp/download_model.sh
 
 RUN sh download_model.sh 117M
 
-
+ENTRYPOINT [ "python3", "src/interactive_conditional_samples.py", "--top_k 40" ]
