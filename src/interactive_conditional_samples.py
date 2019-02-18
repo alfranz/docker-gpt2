@@ -52,7 +52,7 @@ def interact_model(
             while not raw_text:
                 print('Prompt should not be empty!')
                 raw_text = input("Model prompt >>> ")
-            clean_input = ''.join(x for x in raw_text if x in string.printable)
+            clean_input = ''.join(x for x in raw_text if ord(x) <= 128)
             context_tokens = enc.encode(clean_input)
             generated = 0
             for _ in range(nsamples // batch_size):
@@ -68,4 +68,6 @@ def interact_model(
 
 if __name__ == '__main__':
     fire.Fire(interact_model)
+    #interact_model()
+
 
