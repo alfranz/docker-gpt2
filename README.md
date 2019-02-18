@@ -52,3 +52,12 @@ We are still considering release of the larger models.
 ## License
 
 Coming soon!
+
+# Dockerized 
+
+```
+docker build openai-nlp . 
+docker run --name ubuntu_bash --rm -i -t openai-nlp bash
+```
+
+
