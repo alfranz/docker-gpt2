@@ -5,6 +5,7 @@ import json
 import os
 import numpy as np
 import tensorflow as tf
+import string
 
 import model, sample, encoder
 
@@ -51,7 +52,8 @@ def interact_model(
             while not raw_text:
                 print('Prompt should not be empty!')
                 raw_text = input("Model prompt >>> ")
-            context_tokens = enc.encode(raw_text)
+            clean_input = ''.join(x for x in raw_text if x in string.printable)
+            context_tokens = enc.encode(clean_input)
             generated = 0
             for _ in range(nsamples // batch_size):
                 out = sess.run(output, feed_dict={
