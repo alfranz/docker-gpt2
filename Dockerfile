@@ -1,14 +1,17 @@
-#FROM frolvlad/alpine-python3:latest
-FROM tensorflow/tensorflow:1.12.0-py3
+FROM python:3.6.8-stretch 
 
-COPY . /nlp
+COPY download_model.sh /nlp/download_model.sh 
 
-WORKDIR /nlp
-
-RUN pip3 install -r requirements.txt
+COPY requirements.txt requirements.txt
 
 RUN chmod +x /nlp/download_model.sh
 
-RUN sh download_model.sh 117M
+RUN pip3 install -r requirements.txt
+
+COPY src /nlp/src
+
+WORKDIR /nlp
+
+RUN sh ./download_model.sh 117M
 
 ENTRYPOINT [ "python3", "src/interactive_conditional_samples.py", "--top_k 40" ]
