@@ -8,6 +8,10 @@ docker build -t openai-nlp .
 docker run --rm -i -t openai-nlp
 ```
 
+## README from original repo 
+
+[Github Link ](https://github.com/openai/gpt-2)
+
 Code and samples from the paper ["Language Models are Unsupervised Multitask Learners"](https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf).
 
 For now, we have only released a smaller (117M parameter) version of GPT-2.
